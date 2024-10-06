@@ -42,7 +42,8 @@ int main(int argc, char *argv[])
 		int terminar = 0;
 		while (terminar ==0)
 		{
-		
+			memset(peticion, 0, sizeof(peticion));
+			memset(respuesta, 0, sizeof(respuesta));
 			// Ahora recibimos su peticion
 			ret=read(sock_conn,peticion, sizeof(peticion));
 			printf ("Recibida una petición\n");
@@ -56,59 +57,26 @@ int main(int argc, char *argv[])
 			char *p = strtok(peticion, "/");
 			int codigo =  atoi (p);
 			
-			char nombre[20];
+			float parametro;
 			
 			if (codigo !=0)
 			{
 				p = strtok( NULL, "/");
-				strcpy (nombre, p);
-				printf ("Codigo: %d, Nombre: %s\n", codigo, nombre);
+				parametro = atof (p);
+				printf ("Codigo: %d, Parámetro: %.2f\n", codigo, parametro);
 			}
 			
 			if (codigo ==0)
 				terminar=1;
-			else if (codigo ==1) // Piden la longitud del nombre
-				sprintf (respuesta,"%d",strlen (nombre));
-			else if (codigo ==2) // Quieren saber si el nombre es bonito
-				if((nombre[0]=='M') || (nombre[0]=='S'))
-				strcpy (respuesta,"SI");
-				else
-					strcpy (respuesta,"NO");
-			
-			else if (codigo ==3) // Decir si es alto/a
-			{
-				p = strtok(NULL, "/");
-				float altura =  atof (p);
-				if (altura > 1.70)
-					sprintf (respuesta, "%s: eres alto/a", nombre);
-				else
-					sprintf (respuesta, "%s: eres bajo/a", nombre);
+			else if (codigo ==1) { // Conversión a Fahrenheit
+				float fahrenheit = (parametro * 9.0 / 5.0) + 32;
+				sprintf (respuesta, "%.2f", fahrenheit);
 			}
 			
-			else if (codigo == 4) // Comprobar si el nombre es un pali­ndromo
-			{	
-				int len = strlen(nombre);
-				int palindromo = 1;
-				for (i = 0; i < len / 2; i++) {
-					if (tolower(nombre[i]) != tolower(nombre[len - i - 1])) {
-						palindromo = 0;
-						break;
-					}
-				}
-				if (palindromo)
-					sprintf (respuesta, "%s: es un palindromo", nombre);
-				else
-					sprintf (respuesta, "%s: no es un palindromo", nombre);
+			else if (codigo ==2) { // Conversión a Celsius
+				float celsius = (parametro - 32) * 5.0 / 9.0;
+				sprintf(respuesta, "%.2f", celsius);
 			}
-			
-			else if (codigo == 5) // Devolver el nombre en mayúsculas
-			{
-				for (i = 0; nombre[i]; i++) {
-					nombre[i] = toupper(nombre[i]);
-				}
-				strcpy(respuesta, nombre);
-			}
-			
 			
 			if (codigo !=0)
 			{	
