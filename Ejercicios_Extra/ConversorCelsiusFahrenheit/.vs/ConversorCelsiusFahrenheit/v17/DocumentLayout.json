@@ -1,13 +1,13 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Usuario\\OneDrive\\Escritorio\\EJERCICIO_GU\u00CDA_SO\\MiEjercicioGuia\\ConversorCelsiusFahrenheit\\",
+  "WorkspaceRootPath": "C:\\Users\\Usuario\\OneDrive\\Escritorio\\EJERCICIO_GU\u00CDA_SO\\MiEjercicioGuia\\Ejercicios_Extra\\ConversorCelsiusFahrenheit\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{E38739FD-46A6-4424-B2BE-ADC0ECF2605D}|ConversorCelsiusFahrenheit\\ConversorCelsiusFahrenheit.csproj|c:\\users\\usuario\\onedrive\\escritorio\\ejercicio_gu\u00EDa_so\\miejercicioguia\\conversorcelsiusfahrenheit\\conversorcelsiusfahrenheit\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{E38739FD-46A6-4424-B2BE-ADC0ECF2605D}|ConversorCelsiusFahrenheit\\ConversorCelsiusFahrenheit.csproj|c:\\users\\usuario\\onedrive\\escritorio\\ejercicio_gu\u00EDa_so\\miejercicioguia\\ejercicios_extra\\conversorcelsiusfahrenheit\\conversorcelsiusfahrenheit\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E38739FD-46A6-4424-B2BE-ADC0ECF2605D}|ConversorCelsiusFahrenheit\\ConversorCelsiusFahrenheit.csproj|solutionrelative:conversorcelsiusfahrenheit\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E38739FD-46A6-4424-B2BE-ADC0ECF2605D}|ConversorCelsiusFahrenheit\\ConversorCelsiusFahrenheit.csproj|C:\\Users\\Usuario\\OneDrive\\Escritorio\\EJERCICIO_GU\u00CDA_SO\\MiEjercicioGuia\\ConversorCelsiusFahrenheit\\conversorcelsiusfahrenheit\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{E38739FD-46A6-4424-B2BE-ADC0ECF2605D}|ConversorCelsiusFahrenheit\\ConversorCelsiusFahrenheit.csproj|C:\\Users\\Usuario\\OneDrive\\Escritorio\\EJERCICIO_GU\u00CDA_SO\\MiEjercicioGuia\\Ejercicios_Extra\\ConversorCelsiusFahrenheit\\conversorcelsiusfahrenheit\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{E38739FD-46A6-4424-B2BE-ADC0ECF2605D}|ConversorCelsiusFahrenheit\\ConversorCelsiusFahrenheit.csproj|solutionrelative:conversorcelsiusfahrenheit\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
@@ -24,11 +24,11 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Form1.cs",
-              "DocumentMoniker": "C:\\Users\\Usuario\\OneDrive\\Escritorio\\EJERCICIO_GU\u00CDA_SO\\MiEjercicioGuia\\ConversorCelsiusFahrenheit\\ConversorCelsiusFahrenheit\\Form1.cs",
+              "DocumentMoniker": "C:\\Users\\Usuario\\OneDrive\\Escritorio\\EJERCICIO_GU\u00CDA_SO\\MiEjercicioGuia\\Ejercicios_Extra\\ConversorCelsiusFahrenheit\\ConversorCelsiusFahrenheit\\Form1.cs",
               "RelativeDocumentMoniker": "ConversorCelsiusFahrenheit\\Form1.cs",
-              "ToolTip": "C:\\Users\\Usuario\\OneDrive\\Escritorio\\EJERCICIO_GU\u00CDA_SO\\MiEjercicioGuia\\ConversorCelsiusFahrenheit\\ConversorCelsiusFahrenheit\\Form1.cs",
+              "ToolTip": "C:\\Users\\Usuario\\OneDrive\\Escritorio\\EJERCICIO_GU\u00CDA_SO\\MiEjercicioGuia\\Ejercicios_Extra\\ConversorCelsiusFahrenheit\\ConversorCelsiusFahrenheit\\Form1.cs",
               "RelativeToolTip": "ConversorCelsiusFahrenheit\\Form1.cs",
-              "ViewState": "AgIAADQAAAAAAAAAAAAkwC0AAAApAAAAAAAAAA==",
+              "ViewState": "AgIAABQAAAAAAAAAAAAIwBsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-05T22:54:38.623Z",
               "EditorCaption": ""
@@ -37,10 +37,10 @@
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "Form1.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Users\\Usuario\\OneDrive\\Escritorio\\EJERCICIO_GU\u00CDA_SO\\MiEjercicioGuia\\ConversorCelsiusFahrenheit\\ConversorCelsiusFahrenheit\\Form1.cs",
+              "DocumentMoniker": "C:\\Users\\Usuario\\OneDrive\\Escritorio\\EJERCICIO_GU\u00CDA_SO\\MiEjercicioGuia\\Ejercicios_Extra\\ConversorCelsiusFahrenheit\\ConversorCelsiusFahrenheit\\Form1.cs",
               "RelativeDocumentMoniker": "ConversorCelsiusFahrenheit\\Form1.cs",
               "ToolTip": "C:\\Users\\Usuario\\OneDrive\\Escritorio\\EJERCICIO_GU\u00CDA_SO\\MiEjercicioGuia\\ConversorCelsiusFahrenheit\\ConversorCelsiusFahrenheit\\Form1.cs [Dise\u00F1o]",
-              "RelativeToolTip": "ConversorCelsiusFahrenheit\\Form1.cs [Dise\u00F1o]",
+              "RelativeToolTip": "..\\..\\ConversorCelsiusFahrenheit\\ConversorCelsiusFahrenheit\\Form1.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-05T22:52:41.001Z"
             }

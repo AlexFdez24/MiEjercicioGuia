@@ -26,6 +26,41 @@ namespace ConversorCelsiusFahrenheit
 
         }
 
+        private void Conectar_button_Click_1(object sender, EventArgs e)
+        {
+            // Creamos un IPEndPoint con el ip del servidor y puerto del servidor al que deseamos conectarnos
+            IPAddress direc = IPAddress.Parse("192.168.56.102");
+            IPEndPoint ipep = new IPEndPoint(direc, 9110);
+
+
+            // Creamos el socket 
+            server = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+            try
+            {
+                server.Connect(ipep);// Intentamos conectar el socket
+                this.BackColor = Color.Green;
+                MessageBox.Show("Conectado");
+            }
+            catch (SocketException)
+            {
+                // Si hay excepcion imprimimos error y salimos del programa con return 
+                MessageBox.Show("No he podido conectar con el servidor");
+                return;
+            }
+        }
+        private void Desconectar_button_Click_1(object sender, EventArgs e)
+        {
+            // Mensaje de desconexión
+            string mensaje = "0/";
+
+            byte[] msg = System.Text.Encoding.ASCII.GetBytes(mensaje);
+            server.Send(msg);
+
+            // Nos desconectamos
+            this.BackColor = Color.Gray;
+            server.Shutdown(SocketShutdown.Both);
+            server.Close();
+        }
         private void convFah_Click(object sender, EventArgs e)
         {
             // Conversión a grados Fahrenheit
@@ -52,44 +87,6 @@ namespace ConversorCelsiusFahrenheit
             server.Receive(msg2);
             mensaje = Encoding.ASCII.GetString(msg2).Split('\0')[0];
             MessageBox.Show("La temperatura en grados Celsius es: " + mensaje + "ºC");
-        }
-
-        private void Conectar_button_Click_1(object sender, EventArgs e)
-        {
-            // Creamos un IPEndPoint con el ip del servidor y puerto del servidor 
-            // al que deseamos conectarnos
-            IPAddress direc = IPAddress.Parse("192.168.56.102");
-            IPEndPoint ipep = new IPEndPoint(direc, 9110);
-
-
-            // Creamos el socket 
-            server = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-            try
-            {
-                server.Connect(ipep);//Intentamos conectar el socket
-                this.BackColor = Color.Green;
-                MessageBox.Show("Conectado");
-            }
-            catch (SocketException)
-            {
-                // Si hay excepcion imprimimos error y salimos del programa con return 
-                MessageBox.Show("No he podido conectar con el servidor");
-                return;
-            }
-        }
-
-        private void Desconectar_button_Click_1(object sender, EventArgs e)
-        {
-            // Mensaje de desconexión
-            string mensaje = "0/";
-
-            byte[] msg = System.Text.Encoding.ASCII.GetBytes(mensaje);
-            server.Send(msg);
-
-            // Nos desconectamos
-            this.BackColor = Color.Gray;
-            server.Shutdown(SocketShutdown.Both);
-            server.Close();
         }
     }
 }

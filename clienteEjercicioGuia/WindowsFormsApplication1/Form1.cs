@@ -26,13 +26,46 @@ namespace WindowsFormsApplication1
 
            
         }
+        private void Conectar_button_Click(object sender, EventArgs e)
+        {
+            // Creamos un IPEndPoint con el ip del servidor y puerto del servidor al que deseamos conectarnos
+            IPAddress direc = IPAddress.Parse("192.168.56.102");
+            IPEndPoint ipep = new IPEndPoint(direc, 9180);
 
-   
+            // Creamos el socket 
+            server = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+            try
+            {
+                server.Connect(ipep);// Intentamos conectar el socket
+                this.BackColor = Color.Green;
+                MessageBox.Show("Conectado");
+            }
+            catch (SocketException)
+            {
+                // Si hay excepción imprimimos error y salimos del programa con return 
+                MessageBox.Show("No he podido conectar con el servidor");
+                return;
+            }
+        }
+        private void Desconectar_button_Click(object sender, EventArgs e)
+        {
+            // Mensaje de desconexión
+            string mensaje = "0/";
+
+            byte[] msg = System.Text.Encoding.ASCII.GetBytes(mensaje);
+            server.Send(msg);
+
+            // Nos desconectamos
+            this.BackColor = Color.Gray;
+            server.Shutdown(SocketShutdown.Both);
+            server.Close();
+        }
+
         private void Enviar_button_Click(object sender, EventArgs e)
         {
             if (Longitud.Checked)
             {
-                // Quiere saber la longitud
+                // Quiere saber la longitud del nombre
                 // Enviamos nombre
                 string mensaje = "1/" + nombre.Text;
                 // Enviamos al servidor el nombre tecleado
@@ -58,7 +91,6 @@ namespace WindowsFormsApplication1
                 byte[] msg2 = new byte[80];
                 server.Receive(msg2);
                 mensaje = Encoding.ASCII.GetString(msg2).Split('\0')[0];
-
 
                 if (mensaje == "SI")
                     MessageBox.Show("Tu nombre ES bonito.");
@@ -114,45 +146,5 @@ namespace WindowsFormsApplication1
                 MessageBox.Show(mensaje);
             }
         }
-
-
-        private void Conectar_button_Click(object sender, EventArgs e)
-        {
-            // Creamos un IPEndPoint con el ip del servidor y puerto del servidor 
-            // al que deseamos conectarnos
-            IPAddress direc = IPAddress.Parse("192.168.56.102");
-            IPEndPoint ipep = new IPEndPoint(direc, 9110);
-
-
-            // Creamos el socket 
-            server = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-            try
-            {
-                server.Connect(ipep);//Intentamos conectar el socket
-                this.BackColor = Color.Green;
-                MessageBox.Show("Conectado");
-            }
-            catch (SocketException)
-            {
-                // Si hay excepcion imprimimos error y salimos del programa con return 
-                MessageBox.Show("No he podido conectar con el servidor");
-                return;
-            }
-        }
-
-        private void Desconectar_button_Click(object sender, EventArgs e)
-        {
-            // Mensaje de desconexión
-            string mensaje = "0/";
-
-            byte[] msg = System.Text.Encoding.ASCII.GetBytes(mensaje);
-            server.Send(msg);
-
-            // Nos desconectamos
-            this.BackColor = Color.Gray;
-            server.Shutdown(SocketShutdown.Both);
-            server.Close();
-        }
-
     }
 }
