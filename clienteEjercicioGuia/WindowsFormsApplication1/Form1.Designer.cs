@@ -32,6 +32,7 @@
             this.nombre = new System.Windows.Forms.TextBox();
             this.Enviar_button = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.mayuscula = new System.Windows.Forms.RadioButton();
             this.palindromo = new System.Windows.Forms.RadioButton();
             this.altura = new System.Windows.Forms.RadioButton();
             this.label1 = new System.Windows.Forms.Label();
@@ -40,7 +41,8 @@
             this.Bonito = new System.Windows.Forms.RadioButton();
             this.Conectar_button = new System.Windows.Forms.Button();
             this.Desconectar_button = new System.Windows.Forms.Button();
-            this.mayuscula = new System.Windows.Forms.RadioButton();
+            this.button1 = new System.Windows.Forms.Button();
+            this.contLbl = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -95,6 +97,18 @@
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Peticion";
+            // 
+            // mayuscula
+            // 
+            this.mayuscula.AutoSize = true;
+            this.mayuscula.Location = new System.Drawing.Point(155, 196);
+            this.mayuscula.Margin = new System.Windows.Forms.Padding(4);
+            this.mayuscula.Name = "mayuscula";
+            this.mayuscula.Size = new System.Drawing.Size(221, 20);
+            this.mayuscula.TabIndex = 12;
+            this.mayuscula.TabStop = true;
+            this.mayuscula.Text = "Dame el nombre en mayúsculas";
+            this.mayuscula.UseVisualStyleBackColor = true;
             // 
             // palindromo
             // 
@@ -183,23 +197,33 @@
             this.Desconectar_button.UseVisualStyleBackColor = true;
             this.Desconectar_button.Click += new System.EventHandler(this.Desconectar_button_Click);
             // 
-            // mayuscula
+            // button1
             // 
-            this.mayuscula.AutoSize = true;
-            this.mayuscula.Location = new System.Drawing.Point(155, 196);
-            this.mayuscula.Margin = new System.Windows.Forms.Padding(4);
-            this.mayuscula.Name = "mayuscula";
-            this.mayuscula.Size = new System.Drawing.Size(221, 20);
-            this.mayuscula.TabIndex = 12;
-            this.mayuscula.TabStop = true;
-            this.mayuscula.Text = "Dame el nombre en mayúsculas";
-            this.mayuscula.UseVisualStyleBackColor = true;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(531, 140);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(204, 104);
+            this.button1.TabIndex = 10;
+            this.button1.Text = "¿Cuántos servicios?";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // contLbl
+            // 
+            this.contLbl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.contLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.contLbl.Location = new System.Drawing.Point(531, 280);
+            this.contLbl.Name = "contLbl";
+            this.contLbl.Size = new System.Drawing.Size(204, 93);
+            this.contLbl.TabIndex = 11;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(988, 692);
+            this.Controls.Add(this.contLbl);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.Desconectar_button);
             this.Controls.Add(this.Conectar_button);
             this.Controls.Add(this.groupBox1);
@@ -228,6 +252,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.RadioButton palindromo;
         private System.Windows.Forms.RadioButton mayuscula;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label contLbl;
     }
 }
 

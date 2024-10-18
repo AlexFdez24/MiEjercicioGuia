@@ -7,6 +7,11 @@
 #include <stdio.h>
 #include <pthread.h>
 
+int contador;
+
+// Estructura necesaria para acceso excluyente
+pthread_mutex_t mutex = PTHREAD_MUTEX_INITIALIZER;
+
 void *AtenderCliente (void *socket)
 {
 	int sock_conn;
@@ -40,7 +45,7 @@ void *AtenderCliente (void *socket)
 		char nombre[20];
 		int i;
 		
-		if (codigo !=0)
+		if ((codigo !=0) && (codigo !=6))
 		{
 			p = strtok(NULL, "/");
 			strcpy (nombre, p);
@@ -98,13 +103,24 @@ void *AtenderCliente (void *socket)
 			}
 			strcpy(respuesta, nombre);
 		}
-			
+		
+		else if (codigo == 6) // Devolver el número de servicios
+		{
+			sprintf (respuesta, "%d", contador);
+		}			
 			
 		if (codigo !=0)
 		{	
 			printf ("Respuesta: %s\n", respuesta);
 			// Enviamos la respuesta
 			write (sock_conn,respuesta, strlen(respuesta));
+		}
+		
+		if ((codigo == 1) || (codigo == 2) || (codigo == 3) || (codigo == 4) || (codigo == 5))
+		{
+			pthread_mutex_lock( &mutex ); // No interrumpas ahora
+			contador = contador + 1;
+			pthread_mutex_unlock( &mutex); // Ya puedes interrumpir
 		}
 	}
 	// Se acabo el servicio para este cliente
@@ -128,13 +144,15 @@ int main(int argc, char *argv[])
 	// Asocia el socket a cualquiera de las IP de la maquina 
 	// htonl formatea el numero que recibe al formato necesario
 	serv_adr.sin_addr.s_addr = htonl(INADDR_ANY);
-	// Escucharemos en el port 9180
-	serv_adr.sin_port = htons(9180);
+	// Escucharemos en el port 9080
+	serv_adr.sin_port = htons(9080);
 	if (bind(sock_listen, (struct sockaddr *) &serv_adr, sizeof(serv_adr)) < 0)
 		printf ("Error al bind");
 	// La cola de peticiones pendientes no podra ser superior a 4
 	if (listen(sock_listen, 4) < 0)
 		printf("Error en el Listen");
+	
+	contador = 0;
 	int i;
 	int sockets[100];
 	pthread_t thread;
